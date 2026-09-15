@@ -1,0 +1,21 @@
+### Geral ###
+.DS_Store
+*.log
+
+### Java / Maven / Quarkus (gymrpg-api) ###
+gymrpg-api/target/
+gymrpg-api/.mvn/wrapper/maven-wrapper.jar
+gymrpg-api/*.iml
+gymrpg-api/.idea/
+
+# Chave privada JWT - NUNCA deve ir para o Git
+gymrpg-api/src/main/resources/privateKey.pem
+
+### Node / Angular (gymrpg-web) ###
+gymrpg-web/node_modules/
+gymrpg-web/dist/
+gymrpg-web/.angular/
+
+### IDEs ###
+.vscode/
+.idea/
