@@ -1,0 +1,40 @@
+<!-- features/auth/register-page/register-page.component.html -->
+
+<h1>Criar conta no GymRPG</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <label>
+    Nome
+    <input type="text" formControlName="name" />
+  </label>
+
+  @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+    <small>Nome é obrigatório.</small>
+  }
+
+  <label>
+    E-mail
+    <input type="email" formControlName="email" />
+  </label>
+
+  @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+    <small>E-mail inválido ou não preenchido.</small>
+  }
+
+  <label>
+    Senha
+    <input type="password" formControlName="password" />
+  </label>
+
+  @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+    <small>Senha deve ter no mínimo 8 caracteres.</small>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+<p>Já tem conta? <a routerLink="/login">Entrar</a></p>

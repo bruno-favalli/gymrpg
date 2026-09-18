@@ -1,0 +1,31 @@
+<!-- features/auth/login-page/login-page.component.html -->
+
+<h1>Entrar no GymRPG</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label>
+    E-mail
+    <input type="email" formControlName="email" />
+  </label>
+
+  @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+    <small>E-mail inválido ou não preenchido.</small>
+  }
+
+  <label>
+    Senha
+    <input type="password" formControlName="password" />
+  </label>
+
+  @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+    <small>Senha é obrigatória.</small>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <button type="submit">Entrar</button>
+</form>
+
+<p>Não tem conta? <a routerLink="/register">Cadastre-se</a></p>
